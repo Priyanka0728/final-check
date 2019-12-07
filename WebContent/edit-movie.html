@@ -18,7 +18,7 @@
 			<form name="editmovie" method="post" action="edit-movie-status.html" onSubmit="return validation()">
 				<table>
 				   <tr>
-					 <td colspan="4">Title</td>
+					 <td colspan="4"><label for="title">Title</label></td>
 				   </tr>
 				   
 				   <tr>
@@ -32,18 +32,18 @@
 				   </tr>
 				   
 				   <tr>
-					  <td>Gross</td>
-					  <td>Active</td>
-					  <td>Date of launch</td>
-					  <td>Genre</td>
+					  <td><label for="gross">Gross</label></td>
+					  <td><label for="Active">Active</label></td>
+					  <td><label for="date">Date of launch</label></td>
+					  <td><label for="Genre">Genre</label></td>
 				   </tr>
 				   
 				   <tr>
 					  <td><input class ="rite" type="text" id="gross" name="txtGross" value="2787965087"/></td>
-					  <td><input type="radio" id="active1" name="rdActive" value="yes" checked />yes
-						  <input type="radio" id="active2" name="rdActive" value="no">No
+					  <td><input type="radio" id="active1" name="rdActive" value="yes" checked /><label for="active1">Yes</label>
+						  <input type="radio" id="active2" name="rdActive" value="no"><label for="active2">No</label>
 					  </td>
-					  <td><input type="text" id="datel" name="txtDate" value="27/04/2022"/></td>
+					  <td><input type="text" id="date" name="txtDate" value="27/04/2022"/></td>
 					  <td>
 						<select name="genre">
 						  <option value="science" >Science Fiction</option>
@@ -60,7 +60,7 @@
 				   </tr>
 				   
 				   <tr>
-					   <td colspan="2"><input type="checkbox" id="chbox1" name="chbox" checked/>Has Teaser</td>
+					   <td colspan="2"><input type="checkbox" id="chbox1" name="chbox" checked/><label for="chbox1">Has Teaser</label></td>
 				   </tr>
 				   <tr>
 				       <td></td>
