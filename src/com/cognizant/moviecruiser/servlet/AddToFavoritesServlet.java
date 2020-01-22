@@ -12,8 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.cognizant.moviecruiser.dao.FavoritesDao;
 import com.cognizant.moviecruiser.dao.FavoritesDaoCollectionImpl;
+import com.cognizant.moviecruiser.dao.FavoritesDaoSqlImpl;
 import com.cognizant.moviecruiser.dao.MovieItemDao;
 import com.cognizant.moviecruiser.dao.MovieItemDaoCollectionImpl;
+import com.cognizant.moviecruiser.dao.MovieItemDaoSqlImpl;
 import com.cognizant.moviecruiser.model.MovieItem;
 
 /**
@@ -39,9 +41,9 @@ public class AddToFavoritesServlet extends HttpServlet {
 		try {
 			long userId = 1L;
 			long movieItemId = Long.parseLong(request.getParameter("movieItemId"));
-			FavoritesDao favoritesDao = new FavoritesDaoCollectionImpl();
+			FavoritesDao favoritesDao = new FavoritesDaoSqlImpl();
 			favoritesDao.addFavoritesItem(1, movieItemId);
-			MovieItemDao movieItemDao = new MovieItemDaoCollectionImpl();
+			MovieItemDao movieItemDao = new MovieItemDaoSqlImpl();
 			List<MovieItem> movieItemListCustomer = movieItemDao.getMovieItemListCustomer();
 			request.setAttribute("movieItemList", movieItemListCustomer);
 			request.setAttribute("addFavoritesStatus", "Movie Added Successfully");

@@ -12,7 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.cognizant.moviecruiser.dao.FavoritesDao;
 import com.cognizant.moviecruiser.dao.FavoritesDaoCollectionImpl;
+import com.cognizant.moviecruiser.dao.FavoritesDaoSqlImpl;
 import com.cognizant.moviecruiser.model.MovieItem;
+
 
 /**
  * Servlet implementation class ShowFavoritesServlet
@@ -34,15 +36,15 @@ public class ShowFavoritesServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		FavoritesDao favoritesDao = new FavoritesDaoCollectionImpl();
+		FavoritesDao favoritesDao = new FavoritesDaoSqlImpl();
 		try {
 			List<MovieItem> movieItemListCustomer = favoritesDao.getAllFavoritesItems(1);
 			request.setAttribute("movieItemListCustomer", movieItemListCustomer);
-			double tot = 0;
-			for (MovieItem movieItem : movieItemListCustomer) {
-				tot += movieItem.getGross();
-				request.setAttribute("tot", tot);
-			}
+			///double tot = 0;
+			//for (MovieItem movieItem : movieItemListCustomer) {
+			////	tot += movieItem.getGross();
+				//request.setAttribute("tot", tot);
+			//}
 			RequestDispatcher rd = request.getRequestDispatcher("favorites.jsp");
 			rd.forward(request, response);
 		} catch (Exception ex) {

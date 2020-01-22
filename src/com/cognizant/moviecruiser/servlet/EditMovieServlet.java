@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.cognizant.moviecruiser.dao.MovieItemDao;
 import com.cognizant.moviecruiser.dao.MovieItemDaoCollectionImpl;
+import com.cognizant.moviecruiser.dao.MovieItemDaoSqlImpl;
 import com.cognizant.moviecruiser.model.MovieItem;
 import com.cognizant.moviecruiser.utl.DateUtil;
 
@@ -46,6 +47,7 @@ public class EditMovieServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		try {
+			MovieItemDao movieItemDao = new MovieItemDaoSqlImpl();
 			long id = Long.parseLong(request.getParameter("movieItemId"));
 			String title = request.getParameter("txtTitle");
 			long gross = Long.parseLong(request.getParameter("txtGross"));
@@ -54,7 +56,6 @@ public class EditMovieServlet extends HttpServlet {
 			String gence = request.getParameter("gence");
 			boolean hasTeaser = request.getParameter("chbox") != null;
 			MovieItem movieItem = new MovieItem(id, title, gross, active, dateOfLaunch, gence, hasTeaser);
-			MovieItemDao movieItemDao = new MovieItemDaoCollectionImpl();
 			movieItemDao.modifyMovieItem(movieItem);
 			request.setAttribute("msg", "MovieItem Added Succefully");
 			RequestDispatcher rd = request.getRequestDispatcher("edit-movie-status.jsp");

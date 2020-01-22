@@ -27,6 +27,10 @@ public class MovieItem {
 		this.hasTeaser = hasTeaser;
 	}
 
+	public MovieItem() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public Long getId() {
 		return id;
 	}
